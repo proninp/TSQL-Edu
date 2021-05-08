@@ -1,0 +1,8 @@
+SELECT name
+FROM Battles
+WHERE CAST(DATEPART(YEAR, date) AS VARCHAR(10)) NOT IN
+(
+    SELECT CAST(launched AS VARCHAR(10))
+    FROM Ships
+    WHERE launched IS NOT NULL
+);
